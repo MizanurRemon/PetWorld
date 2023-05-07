@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: scroll;
 }
 
 .post-image {
@@ -55,6 +54,8 @@
 
 .comment-list {
   list-style: none;
+  overflow: scroll;
+  height: 40%;
 }
 
 .comment-list li {
