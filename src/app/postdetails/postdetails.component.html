@@ -1,0 +1,54 @@
+<div class="post-details-container">
+	<div class="post-image">
+		<img src="{{postDetails?.image}}"
+			alt>
+	</div>
+
+	<div class="content-button">
+		<fa-icon [icon]="heartIcon"></fa-icon>
+
+		<fa-icon [icon]="downloadIcon"></fa-icon>
+
+		<div class="likes">
+			{{postDetails?.likes}} likes
+		</div>
+	</div>
+
+	<app-owner-profile-component [firstName]="postDetails?.owner?.firstName"
+		[lastName]="postDetails?.owner?.lastName"
+		[userID]="postDetails?.owner?.id"
+		[picture]="postDetails?.owner?.picture"
+		[date]="postDetails?.publishDate"></app-owner-profile-component>
+
+	<div class="message">
+		{{postDetails?.text}}
+	</div>
+
+	<div class="tags">
+		<li class="tag-item" *ngFor="let tagItem of postDetails?.tags">
+			{{tagItem}}
+		</li>
+	</div>
+
+	<div class="comments">
+
+		<div class="comments-title">
+			<p>comments</p>
+			<!-- <fa-icon [icon]="arrowDownIcon"></fa-icon> -->
+		</div>
+
+		<div class="comment-list">
+			<li class="comment-item" *ngFor="let item of postComments?.data">
+				<app-owner-profile-component [firstName]="item?.owner?.firstName"
+					[lastName]="item?.owner?.lastName"
+					[userID]="item?.owner?.id"
+					[picture]="item?.owner?.picture"
+					[date]="item?.publishDate"></app-owner-profile-component>
+
+					<div class="message">
+						{{item?.message}}
+					</div>
+			</li>
+		</div>
+	</div>
+</div>

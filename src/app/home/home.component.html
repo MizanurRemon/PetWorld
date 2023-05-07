@@ -1,38 +1,5 @@
 <div class="home-container">
 
-	<div class="post-list">
-		<li *ngFor="let item of postList.data">
-
-			<div class="post-item">
-				<div class="post-top">
-
-                    <img src='{{item.owner.picture}}'/>
-
-					<div class="post-top-content">
-                        <div class="post-user-name">
-                            {{item.owner.firstName+" "+item.owner.lastName}}
-                        </div>
-    
-                        <div class="post-date">
-                            {{item.publishDate | date:'dd MMM, yyyy hh:mm a'}}
-                        </div>
-                    </div>
-				</div>
-
-				<div class="post-content">
-					<div class="post-content-text">{{item.text}}</div>
-
-					<img src='{{item?.image}}'>
-				</div>
-
-				<div class="post-footer">
-					<fa-icon [icon]="heartIcon"></fa-icon>
-
-					<fa-icon [icon]="downloadIcon"></fa-icon>
-				</div>
-			</div>
-
-		</li>
-	</div>
+	<app-post-list-component [posts]="posts"></app-post-list-component>
 
 </div>

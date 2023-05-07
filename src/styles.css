@@ -7,6 +7,7 @@
   --shadow-dark: rgba(0, 0, 0, 0.3);
   --shadow-light: rgba(255, 255, 255, 0.1);
   --bg-color: #131314;
+  --container-color: #1e1e1e;
 }
 
 * {
@@ -29,13 +30,22 @@ body {
 .container {
   width: 400px;
   height: 80vh;
-  background-color: var(--blue-1);
+  background-color: var(--container-color);
   border-radius: 20px;
   box-shadow: 10px 10px 10px var(--shadow-dark);
   display: flex;
   flex-direction: column;
 }
 
+fa-icon {
+  margin: 15px;
+  color: grey;
+}
+
+fa-icon :hover {
+  cursor: pointer;
+  color: white;
+}
 
 .post-list {
   list-style: none;
@@ -65,7 +75,7 @@ body {
 }
 
 .post-user-name:hover {
-  font-weight: bolder;
+  color: antiquewhite;
   cursor: pointer;
 
 }
@@ -98,26 +108,26 @@ body {
 }
 
 .post-top img:hover {
-  height: 32px;
-  width: 32px;
   cursor: pointer;
 }
 
 .post-content img {
   width: 100%;
-  min-height: 100px;
+  height: 200px;
+  object-position: center;
+  object-fit: cover;
+
 }
 
 .post-footer {
   margin: 10px;
 }
 
-.post-footer fa-icon {
-  margin: 15px;
-  color: gray;
+.post-content {
+  
 }
 
-.post-footer fa-icon :hover {
+.post-content:hover {
   cursor: pointer;
-  color: white;
 }
+

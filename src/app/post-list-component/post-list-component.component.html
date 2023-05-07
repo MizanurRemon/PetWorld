@@ -1,0 +1,27 @@
+<div class="post-list">
+	<li *ngFor="let item of posts?.data">
+
+		<div class="post-item">
+
+			<app-owner-profile-component [firstName]="item?.owner?.firstName"
+				[lastName]="item?.owner?.lastName"
+				[userID]="item?.owner?.id"
+				[picture]="item?.owner?.picture"
+				[date]="item?.publishDate"></app-owner-profile-component>
+
+			<div (click)="openPostDetails(item.id)"
+				class="post-content">
+				<div class="post-content-text">{{item.text}}</div>
+
+				<img src='{{item?.image}}'>
+			</div>
+
+			<div class="post-footer">
+				<fa-icon [icon]="heartIcon"></fa-icon>
+
+				<fa-icon [icon]="downloadIcon"></fa-icon>
+			</div>
+		</div>
+
+	</li>
+</div>

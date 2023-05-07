@@ -1,0 +1,16 @@
+<div class="post-top">
+
+    <img (click)="openUserDetails(userID)"
+        src='{{picture}}'>
+
+    <div class="post-top-content">
+        <div (click)="openUserDetails(userID)"
+            class="post-user-name">
+            {{firstName+" "+lastName}}
+        </div>
+
+        <div class="post-date">
+            {{date | date:'dd MMM, yyyy hh:mm a'}}
+        </div>
+    </div>
+</div>

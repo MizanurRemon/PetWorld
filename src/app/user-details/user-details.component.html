@@ -1,0 +1,78 @@
+<div class="user-details-container">
+	<div class="user-details-top">
+
+		<!-- <img src='{{cover}}' alt=""> -->
+
+		<div class="profile-content">
+			<img src='{{userDetails?.picture}}'>
+
+			<div class="user-name">
+				{{userDetails?.firstName+" "+userDetails?.lastName}}
+			</div>
+		</div>
+
+	</div>
+
+	<div class="user-details-bottom">
+
+		<div class="tab-container">
+			<li *ngFor="let tabitem of tabItems"
+				(click)="changeTabItemOnClick(tabitem)"
+				class="tab-item">
+				{{tabitem}}
+			</li>
+		</div>
+
+		<ng-container *ngIf="selectedTabItem=='Posts'">
+			
+			<app-post-list-component [posts]="posts"></app-post-list-component>
+
+		</ng-container>
+
+		<ng-container *ngIf="selectedTabItem=='About'">
+			<div class="about">
+
+				<div class="about-item">
+					<div class="about-item-title">email</div>
+
+					<div class="about-item-data">
+						{{userDetails?.email}}
+					</div>
+				</div>
+
+				<div class="about-item">
+					<div class="about-item-title">phone</div>
+
+					<div class="about-item-data">
+						{{userDetails?.phone}}
+					</div>
+				</div>
+
+				<div class="about-item">
+					<div class="about-item-title">DOB</div>
+
+					<div class="about-item-data">
+						{{userDetails?.dateOfBirth | date:'dd MMM, yyy'}}
+					</div>
+				</div>
+
+				<div class="about-item">
+					<div class="about-item-title">gender</div>
+
+					<div class="about-item-data">
+						{{userDetails?.gender}}
+					</div>
+				</div>
+
+				<div class="about-item">
+					<div class="about-item-title">location</div>
+
+					<div class="about-item-data">
+						{{userDetails?.location?.street+", "+userDetails?.location?.city+", "+userDetails?.location?.state+", "+userDetails?.location?.country}}
+					</div>
+				</div>
+			</div>
+
+		</ng-container>
+	</div>
+</div>

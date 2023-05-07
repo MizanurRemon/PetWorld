@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { PostListComponentComponent } from './post-list-component/post-list-component.component';
+import { PostdetailsComponent } from './postdetails/postdetails.component';
+import { OwnerProfileComponentComponent } from './owner-profile-component/owner-profile-component.component';
 
 
 @NgModule({
@@ -15,6 +19,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppComponent,
     UsersComponent,
     HomeComponent,
+    UserDetailsComponent,
+    PostListComponentComponent,
+    PostdetailsComponent,
+    OwnerProfileComponentComponent,
   ],
   imports: [
     BrowserModule,

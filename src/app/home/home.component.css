@@ -5,3 +5,9 @@
     flex-direction: column;
 }
 
+.home-container app-post-list-component{
+    height: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+
+}
