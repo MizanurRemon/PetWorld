@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
   
 
   onScrollFunction() {
+    console.log("scroll")
     this.page++;
     this.getPosts(this.page);
   }

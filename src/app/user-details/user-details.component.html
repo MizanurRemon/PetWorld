@@ -24,9 +24,15 @@
 		</div>
 
 		<ng-container *ngIf="selectedTabItem=='Posts'">
-			
-			<app-post-list-component [posts]="postList"></app-post-list-component>
 
+			<div [infiniteScrollDistance]="2"
+				[infiniteScrollThrottle]="1000"
+				(scrolled)="onScrollFunction()"
+				(wheel)="onScrollFunction()"
+				infinite-scroll>
+				<app-post-list-component [posts]="postList"></app-post-list-component>
+
+			</div>
 		</ng-container>
 
 		<ng-container *ngIf="selectedTabItem=='About'">
