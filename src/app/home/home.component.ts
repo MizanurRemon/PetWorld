@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { take } from 'rxjs';
-import { Posts } from 'src/models/post.model';
+import { Data, Posts } from 'src/models/post.model';
 
 @Component({
   selector: 'app-home',
@@ -10,23 +10,27 @@ import { Posts } from 'src/models/post.model';
 })
 export class HomeComponent implements OnInit {
 
-  
+  page = 0
+  limit = 10
 
   constructor(private apiServices: ApiService) {
 
   }
 
   ngOnInit(): void {
-    this.getPosts()
+    this.getPosts(this.page)
   }
 
   posts?: Posts;
+  postList? :Data[]=[]
 
-  getPosts() {
-    this.apiServices.getPosts().pipe(take(1)).subscribe({
+  getPosts(page: any) {
+    this.apiServices.getPosts(page).pipe(take(1)).subscribe({
       next: (response) => {
 
-        this.posts = response;
+        //this.posts = response;
+        this.postList?.push(...response.data)
+        console.log(this.postList?.length)
       },
       error: err => {
         console.error("ERROR:: ", err);
@@ -34,8 +38,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onSaveClick(url: any, name: any) {
-    //saveAs(url, name+'.png');
+  
+
+  onScrollFunction() {
+    this.page++;
+    this.getPosts(this.page);
   }
 
 }

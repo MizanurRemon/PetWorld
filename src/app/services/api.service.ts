@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 import { Posts } from 'src/models/post.model';
 import { User } from 'src/models/user.model';
 import { PostDetails } from 'src/models/postDetails.model';
@@ -24,14 +24,17 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<Posts> {
+  getPosts(page: any): Observable<Posts> {
     let headers = new HttpHeaders({
       'app-id': this.APPID
     });
 
-    return this.http.get<Posts>(this.BASE_URL + this.POSTS, {
-      headers
-    });
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("page", page);
+
+    const options = { params: queryParams, headers: headers };
+
+    return this.http.get<Posts>(this.BASE_URL + this.POSTS, options);
   }
 
   getUserDetails(userID: any): Observable<User> {
@@ -45,14 +48,18 @@ export class ApiService {
   }
 
 
-  getUserPost(userID: any): Observable<Posts> {
+  getUserPost(userID: any, page: any): Observable<Posts> {
     let headers = new HttpHeaders({
       'app-id': this.APPID
     });
 
-    return this.http.get<Posts>(this.BASE_URL + this.USER + "/" + userID + "/" + this.POSTS, {
-      headers
-    });
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("page", page);
+
+    const options = { params: queryParams, headers: headers };
+
+    return this.http.get<Posts>(this.BASE_URL + this.USER + "/" + userID + "/" + this.POSTS, {headers}
+    );
   }
 
   getPostDetails(postID: any): Observable<PostDetails> {
@@ -69,5 +76,23 @@ export class ApiService {
     });
 
     return this.http.get<PostComment>(this.BASE_URL + this.POSTS + "/" + postID + "/" + this.COMMENT, { headers });
+  }
+
+  imageDownLoad(imagePath: any, fileName: any){
+    return this.http
+      .get(
+        imagePath,
+        {
+          responseType: "blob"
+        }
+      )
+      .pipe(
+        map(res => {
+          return {
+            filename: fileName,
+            data: res
+          };
+        })
+      );
   }
 }

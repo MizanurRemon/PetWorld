@@ -1,5 +1,5 @@
 <div class="post-list">
-	<li *ngFor="let item of posts?.data">
+	<li *ngFor="let item of posts">
 
 		<div class="post-item">
 
@@ -19,7 +19,11 @@
 			<div class="post-footer">
 				<fa-icon [icon]="heartIcon"></fa-icon>
 
-				<fa-icon [icon]="downloadIcon"></fa-icon>
+				<fa-icon [icon]="downloadIcon" (click)="onSaveClick(item?.image, item?.id)"></fa-icon>
+
+				<div class="likes">
+					{{item?.likes}} likes
+				</div>
 			</div>
 		</div>
 

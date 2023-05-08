@@ -44,7 +44,7 @@ export class PostdetailsComponent implements OnInit {
       next: (response) => {
         this.postComments = response;
 
-        console.log("comments:: "+JSON.stringify(this.postComments))
+        //console.log("comments:: "+JSON.stringify(this.postComments))
       }
     });
   }

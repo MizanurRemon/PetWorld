@@ -1,5 +1,9 @@
-<div class="home-container">
+<div [infiniteScrollDistance]="2"
+	[infiniteScrollThrottle]="1000"
+	(scrolled)="onScrollFunction()"
+	class="home-container"
+	infinite-scroll>
 
-	<app-post-list-component [posts]="posts"></app-post-list-component>
+	<app-post-list-component [posts]="postList"></app-post-list-component>
 
 </div>

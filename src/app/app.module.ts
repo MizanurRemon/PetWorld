@@ -12,6 +12,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { PostListComponentComponent } from './post-list-component/post-list-component.component';
 import { PostdetailsComponent } from './postdetails/postdetails.component';
 import { OwnerProfileComponentComponent } from './owner-profile-component/owner-profile-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { OwnerProfileComponentComponent } from './owner-profile-component/owner-
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
+    InfiniteScrollModule
 
   ],
   providers: [],

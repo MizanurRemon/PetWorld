@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map, take } from 'rxjs';
 import { ApiService } from '../services/api.service';
 import { User } from 'src/models/user.model';
-import { Posts } from 'src/models/post.model';
+import { Data, Posts } from 'src/models/post.model';
 
 @Component({
   selector: 'app-user-details',
@@ -15,8 +15,11 @@ export class UserDetailsComponent implements OnInit {
   userId: any;
   constructor(private apiServices: ApiService, private router: Router, public activatedRoute: ActivatedRoute) { }
 
-  tabItems = ['About', 'Posts']
+  tabItems = ['Posts', 'About']
   selectedTabItem: any = "Posts";
+
+  page = 1
+  postList?: Data[]=[]
 
 
   ngOnInit(): void {
@@ -28,7 +31,7 @@ export class UserDetailsComponent implements OnInit {
 
     this.getUserDetails()
 
-    this.getUserPosts()
+    this.getUserPosts(this.page)
   }
 
   userDetails?: User;
@@ -45,17 +48,23 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
-  getUserPosts() {
-    this.apiServices.getUserPost(this.userId).pipe(take(1)).subscribe({
+  getUserPosts(page:any) {
+    this.apiServices.getUserPost(this.userId, page).pipe(take(1)).subscribe({
       next: (response) => {
-        this.posts = response
+        //this.posts = response
         //console.log(this.getPosts)
+        this.postList?.push(...response.data)
       }
     });
   }
 
   changeTabItemOnClick(value: any) {
     this.selectedTabItem = value;
+  }
+
+  onScrollFunction() {
+    this.page++;
+    this.getUserPosts(this.page);
   }
 
 }

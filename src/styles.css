@@ -52,6 +52,7 @@ fa-icon :hover {
   position: relative;
   overflow-y: scroll;
   height: 93%;
+  padding-bottom: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -121,13 +122,34 @@ fa-icon :hover {
 
 .post-footer {
   margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.post-content {
-  
+.likes {
+  color: gray;
+  font-size: 10px;
+  margin-left: auto;
 }
+
+.likes:hover {
+  color: white;
+}
+
+.post-content {}
 
 .post-content:hover {
   cursor: pointer;
 }
 
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

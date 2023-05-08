@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: scroll;
 }
 
 .post-image {
@@ -25,11 +26,7 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-}
-
-.content-button .likes {
-  color: gray;
-  font-size: 10px;
+  padding: 0 2% 0 0;
 }
 
 .comments {
@@ -54,8 +51,8 @@
 
 .comment-list {
   list-style: none;
-  overflow: scroll;
-  height: 40%;
+  /* overflow: scroll; */
+
 }
 
 .comment-list li {
