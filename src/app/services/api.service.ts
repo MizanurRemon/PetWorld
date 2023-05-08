@@ -22,6 +22,8 @@ export class ApiService {
 
   private COMMENT = "comment";
 
+  private TAG = "tag";
+
   constructor(private http: HttpClient) { }
 
   getPosts(page: any): Observable<Posts> {
@@ -58,7 +60,7 @@ export class ApiService {
 
     const options = { params: queryParams, headers: headers };
 
-    return this.http.get<Posts>(this.BASE_URL + this.USER + "/" + userID + "/" + this.POSTS, {headers}
+    return this.http.get<Posts>(this.BASE_URL + this.USER + "/" + userID + "/" + this.POSTS, { headers }
     );
   }
 
@@ -78,7 +80,20 @@ export class ApiService {
     return this.http.get<PostComment>(this.BASE_URL + this.POSTS + "/" + postID + "/" + this.COMMENT, { headers });
   }
 
-  imageDownLoad(imagePath: any, fileName: any){
+  getTagWisePost(tagItem: any, page: any): Observable<Posts> {
+    let headers = new HttpHeaders({
+      'app-id': this.APPID
+    });
+
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("page", page);
+
+    const options = { params: queryParams, headers: headers };
+
+    return this.http.get<Posts>(this.BASE_URL + this.TAG + "/" + tagItem+"/"+this.POSTS, options);
+  }
+
+  imageDownLoad(imagePath: any, fileName: any) {
     return this.http
       .get(
         imagePath,

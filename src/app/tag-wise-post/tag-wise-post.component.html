@@ -1,0 +1,22 @@
+<div class="tag-main-container">
+
+	<div class="search">
+
+		<form #form="ngForm"
+			(submit)="onSearch()">
+			<input [(ngModel)]="tagItem" type="text"
+				name="tagItem"
+				placeholder="search">
+
+		</form>
+	</div>
+	<div [infiniteScrollDistance]="1"
+		[infiniteScrollThrottle]="10000"
+		(scrolled)="onScrollFunction()"
+		(wheel)="onScrollFunction()"
+		class="tag-wise-container"
+		infinite-scroll>
+		<app-post-list-component [posts]="postList"></app-post-list-component>
+
+	</div>
+</div>

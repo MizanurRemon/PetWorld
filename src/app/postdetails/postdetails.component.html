@@ -7,7 +7,8 @@
 	<div class="content-button">
 		<fa-icon [icon]="heartIcon"></fa-icon>
 
-		<fa-icon [icon]="downloadIcon"></fa-icon>
+		<fa-icon [icon]="downloadIcon"
+			(click)="onSaveClick(postDetails?.image, postDetails?.id)"></fa-icon>
 
 		<div class="likes">
 			{{postDetails?.likes}} likes
@@ -25,7 +26,8 @@
 	</div>
 
 	<div class="tags">
-		<li class="tag-item" *ngFor="let tagItem of postDetails?.tags">
+		<li *ngFor="let tagItem of postDetails?.tags"
+			class="tag-item" (click) = "onTagItemClick(tagItem)">
 			{{tagItem}}
 		</li>
 	</div>
@@ -38,16 +40,15 @@
 		</div>
 
 		<div class="comment-list">
-			<li class="comment-item" *ngFor="let item of postComments?.data">
+			<li *ngFor="let item of postComments?.data"
+				class="comment-item">
 				<app-owner-profile-component [firstName]="item?.owner?.firstName"
 					[lastName]="item?.owner?.lastName"
 					[userID]="item?.owner?.id"
 					[picture]="item?.owner?.picture"
 					[date]="item?.publishDate"></app-owner-profile-component>
 
-					<div class="message">
-						{{item?.message}}
-					</div>
+				<div class="message">{{item?.message}}</div>
 			</li>
 		</div>
 	</div>

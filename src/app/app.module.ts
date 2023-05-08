@@ -14,7 +14,8 @@ import { PostdetailsComponent } from './postdetails/postdetails.component';
 import { OwnerProfileComponentComponent } from './owner-profile-component/owner-profile-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { TagWisePostComponent } from './tag-wise-post/tag-wise-post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PostListComponentComponent,
     PostdetailsComponent,
     OwnerProfileComponentComponent,
+    TagWisePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FormsModule
 
   ],
   providers: [],

@@ -57,4 +57,26 @@ export class PostdetailsComponent implements OnInit {
     })
   }
 
+  onSaveClick(url: any, name: any) {
+    //console.log("url:: ", url)
+     window.open(url);
+      // let a = document.createElement("a");
+      // document.body.appendChild(a);
+      // a.setAttribute("style", "display: none");
+      // a.href = url;
+      // a.download = "test.png";
+      // a.click();
+      // window.URL.revokeObjectURL(url);
+      // a.remove();
+  }
+
+  onTagItemClick(tagItem: any){
+   
+    this.router.navigate(["/posts"], {
+      state: {
+        tagItem: tagItem
+      }
+    })
+  }
+
 }

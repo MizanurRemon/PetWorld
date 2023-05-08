@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
         //this.posts = response;
         this.postList?.push(...response.data)
-        console.log(this.postList?.length)
+        //console.log(this.postList?.length)
       },
       error: err => {
         console.error("ERROR:: ", err);
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   
 
   onScrollFunction() {
-    console.log("scroll")
+    //console.log("scroll")
     this.page++;
     this.getPosts(this.page);
   }
