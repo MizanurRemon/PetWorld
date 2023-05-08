@@ -10,8 +10,9 @@
 
 		</form>
 	</div>
-	<div [infiniteScrollDistance]="1"
+	<div [infiniteScrollDistance]="2"
 		[infiniteScrollThrottle]="10000"
+        [infiniteScrollDisabled] = false
 		(scrolled)="onScrollFunction()"
 		(wheel)="onScrollFunction()"
 		class="tag-wise-container"
