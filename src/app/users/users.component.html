@@ -1,1 +1,17 @@
-<p>User details</p>
+<div class="user-container">
+	<div class="user-list">
+		<li *ngFor="let user of userList">
+
+			<div (click)="openUserDetails(user.id)"
+				class="list-item">
+
+				<img src="{{user?.picture}}">
+				<div class="user-name">
+					{{user?.firstName+" "+ user?.firstName}}
+				</div>
+
+			</div>
+
+		</li>
+	</div>
+</div>

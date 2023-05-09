@@ -17,7 +17,10 @@ export class TagWisePostComponent implements OnInit {
   page: any = 1
 
   ngOnInit(): void {
-    this.tagItem = window.history.state.tagItem;
+    
+
+    this.tagItem = window.history.state.tagItem ?? "dog";
+
     this.getTagWisePosts()
   }
 
@@ -36,14 +39,14 @@ export class TagWisePostComponent implements OnInit {
     this.getTagWisePosts()
   }
 
-  onSearch(){
+  onSearch() {
     this.page = 1
     //this.tagItem = "human"
     this.clearPostList()
     this.getTagWisePosts()
   }
 
-  clearPostList(){
+  clearPostList() {
     this.postList = []
   }
 

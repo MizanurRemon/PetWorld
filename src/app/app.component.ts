@@ -6,8 +6,8 @@ import { faHome, faUser, faTag } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  
+export class AppComponent implements OnInit {
+
   title = 'PetWorld';
 
   homeIcon = faHome
@@ -16,24 +16,34 @@ export class AppComponent implements OnInit{
 
   navItems: any = ["Home", "Users"]
 
-  clickedItem : any = "home"
+  clickedItem: any = "home"
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
-   // this.rou
-    
+    // this.rou
+
   }
 
-  onNavClick(item: any){
+  onNavClick(item: any) {
     //console.log(item)
     this.clickedItem = item
 
-  
+    if (this.clickedItem == 'home') {
+      this.router.navigate(["/"])
+    }
+
+    if (this.clickedItem == 'users') {
+      this.router.navigate(["/users"])
+    }
+
+    if (this.clickedItem == 'tag') {
+      this.router.navigate(["/posts"])
+    }
+
   }
 }
 
 
 //	[ngStyle]="{'color':clickedItem ==='users'? 'white':'gray'}"
-				

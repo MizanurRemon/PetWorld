@@ -28,6 +28,7 @@ export class PostListComponentComponent implements OnInit {
 
 
   openPostDetails(postID: any) {
+
     this.router.navigate(["/postdetails"], {
       state: {
         postID: postID

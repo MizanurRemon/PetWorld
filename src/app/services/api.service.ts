@@ -5,6 +5,7 @@ import { Posts } from 'src/models/post.model';
 import { User } from 'src/models/user.model';
 import { PostDetails } from 'src/models/postDetails.model';
 import { PostComment } from 'src/models/comment.model';
+import { Users } from 'src/models/userList.model';
 
 
 @Injectable({
@@ -90,7 +91,7 @@ export class ApiService {
 
     const options = { params: queryParams, headers: headers };
 
-    return this.http.get<Posts>(this.BASE_URL + this.TAG + "/" + tagItem+"/"+this.POSTS, options);
+    return this.http.get<Posts>(this.BASE_URL + this.TAG + "/" + tagItem + "/" + this.POSTS, options);
   }
 
   imageDownLoad(imagePath: any, fileName: any) {
@@ -109,5 +110,14 @@ export class ApiService {
           };
         })
       );
+  }
+
+  getUserList(): Observable<Users> {
+    let headers = new HttpHeaders({
+      'app-id': this.APPID
+    });
+
+    return this.http.get<Users>(this.BASE_URL + this.USER, { headers })
+
   }
 }

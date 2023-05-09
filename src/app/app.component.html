@@ -1,18 +1,10 @@
 <div class="container">
 
-
 	<div class="main-container">
 
-
-		<!-- <app-home *ngIf="clickedItem == 'home'"></app-home>
-
-        <app-users *ngIf="clickedItem == 'users'"></app-users> -->
-        <router-outlet></router-outlet>
-
-
+		<router-outlet></router-outlet>
 
 	</div>
-
 
 	<div class="bottom-nav">
 		<div class="bottom-nav-item">
@@ -21,15 +13,11 @@
 				(click)="onNavClick('home')"></fa-icon>
 		</div>
 
-
 		<div class="bottom-nav-item">
 			<fa-icon [icon]="userIcon"
 				[ngStyle]="{'color':clickedItem ==='users'? 'white':'gray'}"
 				(click)="onNavClick('users')"></fa-icon>
-
-
 		</div>
-
 
 		<div class="bottom-nav-item">
 			<fa-icon [icon]="tagIcon"
